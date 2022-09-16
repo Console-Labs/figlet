@@ -33,12 +33,15 @@
         console.log(figletInput.value);
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        fetch("http://localhost:3000/figletify", {
+        fetch("/figletify", {
             method: 'POST',
             headers: myHeaders,
             body: JSON.stringify({
                 data: {
                     text: figletInput.value
+                },
+                options: {
+                    type: 'json'
                 }
             })
         })
